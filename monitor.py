@@ -20,7 +20,7 @@ def index():
 
 @get('/llamados')
 def index():
-    return template('llamados')
+    return template('llamados2')
     
 @get('/websocket', apply=[websocket])
 def chat(ws):
