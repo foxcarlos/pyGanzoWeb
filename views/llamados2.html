@@ -17,7 +17,36 @@
             padding: 9px 0;
         }
     </style>
-    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            if (!window.WebSocket) {
+                if (window.MozWebSocket) {
+                    window.WebSocket = window.MozWebSocket;
+                } else {
+                    $('#messages').append("<li>Your browser doesn't support WebSockets.</li>");
+                }
+            }
+				alert('Paso')            
+            ws = new WebSocket('ws://10.121.3.31:8080/websocket');
+            ws.onopen = function(evt) {
+            	 alert('metodo onopen')
+                $('#messages').append('<li>Connected to chat.</li>');
+            }
+            ws.onmessage = function(evt) {
+            	 //alert('Hay un mensage:'+evt.data)
+                $('#messages').append('<li>' + evt.data + '</li>');
+                $('#paciente').text(evt.data);
+            }
+            $('#send-message').submit(function() {
+            	 alert('Se presiono Submit')
+                ws.send($('#name').val() + ": " + $('#message').val());
+                $('#message').val('').focus();
+                return false;
+            });
+        });
+    </script> 
 </head>
 
 <body>
@@ -73,7 +102,7 @@
                     </center>
 
                     <center>
-                        <h2 style="font-size:110px;text-shadow: 5px 5px 5px #1A1A1A;">CARLOS ALBERTO GARCIA</h2>
+                        <h2 id="paciente" style="font-size:110px;text-shadow: 5px 5px 5px #1A1A1A;">CARLOS ALBERTO GARCIA</h2>
                     </center>
 						  
 						  <center>                    

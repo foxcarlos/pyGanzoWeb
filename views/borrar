@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+</head>
+<body>
+
+<audio 
+	src="file:///home/cgarcia/desarrollo/python/pyGanzoWeb/static/file/campana.mp3" 
+	autoplay="autoplay" 
+	preload="none">
+</audio>
+
+</body>
+</html>
