@@ -3,14 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <title></title>
+	<script type="text/javascript" >
+		function campana(){
+			var Audio  = document.getElementById('miAudio');
+			Audio.play();
+		}			
+	</script>
+
 </head>
 <body>
 
-<audio 
-	src="file:///home/cgarcia/desarrollo/python/pyGanzoWeb/static/file/campana.mp3" 
-	autoplay="autoplay" 
-	preload="none">
-</audio>
+<audio id="miAudio" src="../static/file/campana.mp3" preload="auto"></audio>
 
+
+<input type="button" name="play" id="boton" onclick="campana()" />
 </body>
 </html>

@@ -19,6 +19,14 @@
     </style>
     <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	 
+	 <script type="text/javascript" >
+		function campana(){
+			var Audio  = document.getElementById('miAudio');
+			Audio.play();
+		}			
+	 </script>    
+    
     <script>
         $(document).ready(function() {
             if (!window.WebSocket) {
@@ -38,6 +46,7 @@
             	 //alert('Hay un mensage:'+evt.data)
                 $('#messages').append('<li>' + evt.data + '</li>');
                 $('#paciente').text(evt.data);
+                campana()
             }
             $('#send-message').submit(function() {
             	 alert('Se presiono Submit')
@@ -50,6 +59,7 @@
 </head>
 
 <body>
+	<audio id="miAudio" src="../static/file/campana.mp3" preload="auto"></audio>
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span4">
