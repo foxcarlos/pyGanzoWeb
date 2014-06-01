@@ -20,8 +20,12 @@ def index():
 
 @get('/llamados')
 def index():
+    return template('llamados3')
+
+@get('/llamados2')
+def index2():
     return template('llamados2')
-    
+   
 @get('/websocket', apply=[websocket])
 def chat(ws):
     print('entro en el metodo chat')
