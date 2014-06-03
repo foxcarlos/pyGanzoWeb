@@ -1,5 +1,5 @@
 import bottle
-from bottle import default_app, run, get, template
+from bottle import default_app, run, get, post, template
 from bottle.ext.websocket import GeventWebSocketServer
 from bottle.ext.websocket import websocket
 
@@ -15,17 +15,23 @@ def index():
     return template('index')
 
 @get('/cliente')
-def index():
+def index2():
     return template('cliente')
 
 @get('/llamados')
-def index():
+def llamados():
     return template('llamados3')
 
-@get('/llamados2')
-def index2():
-    return template('llamados2')
-   
+@get('/llamarPaciente')
+def llamarPacienteGet():
+    return template('quien_llama')
+
+@post('/llamarPaciente')
+def llamarPacientePost():
+    control = bottle.request.forms.get('control')
+    print(control)
+    return template('quien_llama')
+
 @get('/websocket', apply=[websocket])
 def chat(ws):
     print('entro en el metodo chat')
