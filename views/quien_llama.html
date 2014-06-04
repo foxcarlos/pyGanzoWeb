@@ -12,7 +12,7 @@
 		if (ncontrol.length==9){
 			//alert('Buscar Control');
 			enviar_formulario()
-			document.getElementById('control').focus();
+			//document.getElementById('control').focus();
 		}		
 	}
 </script>
@@ -21,13 +21,13 @@
 	function enviar_formulario(){ 
    	forma = document.getElementById('quien_llama')
    	forma.submit()
-   	document.getElementById('control').focus();
+   	//document.getElementById('control').focus();
 	} 
 </script>
 
 <title>Quien Llama</title>
 </head>
-<body>
+<body onload="document.getElementById('control').focus()">
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<img src="/static/file/img/Logosmall.bmp" width="30%" height="5%" alt="Hospital Coromoto" longdesc="Hospital Coromoto" />
@@ -54,11 +54,21 @@
           		</div>
           		</div>
           		<hr/>
+
+					<div class="row">					
+					<div class="form-group">
+            		<label class="col-sm-2 control-label" for="textinput">Control</label>
+            		<div class="col-sm-4">
+              			<input id="control2" name="control2" type="text" placeholder="Numero de Control" class="form-control" value="{{get('control', '')}}">
+            		</div>
+          		</div>
+          		</div>
+          		          		
           		<div class="row">
           		<div class="form-group">
             		<label class="col-sm-2 control-label" for="textinput">Paciente</label>
             		<div class="col-sm-8">
-              			<input type="text" placeholder="Nombre del Paciente" class="form-control">
+              			<input type="text" placeholder="Nombre del Paciente" class="form-control" value="{{get('nombre', '')}}">
             		</div>
           		</div>
           		</div>
@@ -67,7 +77,7 @@
           		<div class="form-group">
             		<label class="col-sm-2 control-label" for="textinput">Cedula</label>
             		<div class="col-sm-4">
-              			<input type="text" placeholder="Cedula del Paciente" class="form-control">
+              			<input type="text" placeholder="Cedula del Paciente" class="form-control" value="{{get('cedula', '')}}">
             		</div>
           		</div>
           		</div>
@@ -76,7 +86,7 @@
           		<div class="form-group">
             		<label class="col-sm-2 control-label" for="textinput">Sexo</label>
             		<div class="col-sm-4">
-              			<input type="text" placeholder="Sexo del Paciente" class="form-control">
+              			<input type="text" placeholder="Sexo del Paciente" class="form-control" value="{{get('sexo', '')}}">
             		</div>
           		</div>
           		</div>
@@ -85,7 +95,7 @@
           		<div class="form-group">
             		<label class="col-sm-2 control-label" for="textinput">Edad</label>
             		<div class="col-sm-4">
-              			<input type="text" placeholder="Edad del Paciente" class="form-control">
+              			<input type="text" placeholder="Edad del Paciente" class="form-control" value="{{get('edad', '')}}">
             		</div>
           		</div>
           		</div>
