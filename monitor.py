@@ -24,7 +24,7 @@ def buscarEnDbf(control):
     #campo = 'file_dbf'
     #tabladbf = self.fc.get('RUTAS', campo)
     
-    tabladbf = '/home/foxcarlos/desarrollo/python/pyGanzoWeb/static/file/dgtcabe.DBF'
+    tabladbf = '/media/serv_coromoto/digitado/data/dgtcabe.dbf'
     print tabladbf
     #tabladbf = archv_dbf
     try:
@@ -37,8 +37,10 @@ def buscarEnDbf(control):
 
     #Buscar el codigo de la especialidad
     for reg in tabla_especial:
-        devuelve = [] 
-        if reg[1] == control:
+        devuelve = []
+        print(reg)
+        if reg[1].strip() == control:
+            print(reg)
             controlb = reg[1]
             tipo = reg[3]
             cedula = reg[4]
@@ -75,6 +77,7 @@ def llamarPacientePost():
     control = bottle.request.forms.get('control')
     print(control)
     l = buscarEnDbf(control)
+    print(l)
     if l: 
         control, tipo, cedula, nombre, sexo, edad = l
         llamar(nombre)

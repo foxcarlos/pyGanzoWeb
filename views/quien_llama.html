@@ -18,9 +18,12 @@
 </script>
 
 <script> 
-	function enviar_formulario(){ 
+	function enviar_formulario(){
+		//ws = new WebSocket('ws://127.0.0.1:8080/websocket');
+		//ws.send($('#name').val() + ": " + $('#message').val()); 
    	forma = document.getElementById('quien_llama')
    	forma.submit()
+   	alert('Hola')
    	//document.getElementById('control').focus();
 	} 
 </script>
