@@ -38,9 +38,9 @@ def buscarEnDbf(control):
     #Buscar el codigo de la especialidad
     for reg in tabla_especial:
         devuelve = []
-        print(reg)
+        #print(reg)
         if reg[1].strip() == control:
-            print(reg)
+            #print(reg)
             controlb = reg[1]
             tipo = reg[3]
             cedula = reg[4]
@@ -80,7 +80,7 @@ def llamarPacientePost():
     print(l)
     if l: 
         control, tipo, cedula, nombre, sexo, edad = l
-        llamar(nombre)
+        #llamar(nombre)
         return template('quien_llama', {'control':control, 'tipo':tipo, 'cedula':cedula, 'nombre':nombre, 'sexo':sexo, 'edad':edad})
     else:
         return template('quien_llama')

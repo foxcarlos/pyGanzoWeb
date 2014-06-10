@@ -37,7 +37,6 @@
             $('#quien_llama').submit(function() {
             	 alert('Se presiono Click')
             	 alert($('#paciente').val())
-            	 ws.send($('#paciente').val());
                return false;
             });
         });
@@ -53,6 +52,15 @@
       		document.getElementById('botonLlamar').click();
       }		
    }
+</script>
+
+<script> 
+   function enviar_formulario(){
+		alert("Entro en enviar_formulario");
+      forma = document.getElementById('quien_llama');
+      forma.submit();
+      //document.getElementById('control').focus();
+   } 
 </script>
 
 <title>Quien Llama</title>
