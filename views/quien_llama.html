@@ -47,11 +47,11 @@
    function validar(){
       var ncontrol = document.getElementById('control').value;
       //console.log(ncontrol.length);
-      if (ncontrol.length==9){
-      		document.getElementById('submit').click();
-      		alert('Se presiono submit');
-      		document.getElementById('botonLlamar').click();
-      }		
+      //if (ncontrol.length==9){
+      //document.getElementById('submit').click();
+      alert('Se presiono submit');
+      //document.getElementById('botonLlamar').click();
+      //}		
    }
 </script>
 
@@ -74,12 +74,13 @@
             </div>
             <div class="panel-body">
 			  
-			<form id="buscarControl" class="form-horizontal" role="form" action="/llamarPaciente" method="POST">
+			<form id="buscarControl" class="form-horizontal" role="form" action="/llamarPaciente" method="post">
 				<div class="row">					
               	<div class="form-group">
                  		<label class="col-sm-2 control-label" for="textinput">Control</label>
+<!-- onkeyup="validar()" -->                  	
                   	<div class="col-sm-4">
-                     	<input id="control" name="control" type="text" placeholder="Numero de Control a Consultar" class="form-control" onkeyup="validar()">
+                     	<input id="control" name="control" type="text" placeholder="Numero de Control a Consultar" class="form-control">
                   	</div>
                	</div>
              </div>

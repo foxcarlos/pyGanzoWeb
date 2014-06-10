@@ -24,7 +24,9 @@ def buscarEnDbf(control):
     #campo = 'file_dbf'
     #tabladbf = self.fc.get('RUTAS', campo)
     
-    tabladbf = '/media/serv_coromoto/digitado/data/dgtcabe.dbf'
+    #tabladbf = '/media/serv_coromoto/digitado/data/dgtcabe.dbf'
+    tabladbf = '/home/cgarcia/.wine/drive_c/dgtcabe.DBF'
+
     print tabladbf
     #tabladbf = archv_dbf
     try:
@@ -33,23 +35,25 @@ def buscarEnDbf(control):
     except:
         #self.logger.error('Error al abrir la tabla DBF')
         #sys.exit()
-        pass
+        print('error al intentar abrir la tabla')
 
     #Buscar el codigo de la especialidad
-    for reg in tabla_especial:
-        devuelve = []
-        #print(reg)
-        if reg[1].strip() == control:
-            #print(reg)
+    cadSql = "select * where control == '{0}'".format(control)
+    buscar = tabla_especial.query(cadSql)
+    if len(buscar) >0:
+        for reg in buscar:
+            print(reg)
+            devuelve = []
+            print(reg[1])
             controlb = reg[1]
             tipo = reg[3]
             cedula = reg[4]
             nombre = reg[6]
             sexo = reg[11]
             edad = reg[12]
-            return controlb, tipo, cedula, nombre, sexo, edad
-        else:
-            return devuelve
+        return controlb, tipo, cedula, nombre, sexo, edad
+    else:
+        return devuelve
 
 @get('/static/<filename:path>')
 def static(filename): 
