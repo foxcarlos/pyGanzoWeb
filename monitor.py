@@ -42,8 +42,7 @@ def buscarEnDbf(control):
     buscar = tabla_especial.query(cadSql)
     if len(buscar) >0:
         for reg in buscar:
-            print(reg)
-            devuelve = []
+            #print(reg)
             print(reg[1])
             controlb = reg[1]
             tipo = reg[3]
@@ -53,7 +52,7 @@ def buscarEnDbf(control):
             edad = reg[12]
         return controlb, tipo, cedula, nombre, sexo, edad
     else:
-        return devuelve
+        return []
 
 @get('/static/<filename:path>')
 def static(filename): 
@@ -85,7 +84,8 @@ def llamarPacientePost():
     if l: 
         control, tipo, cedula, nombre, sexo, edad = l
         #llamar(nombre)
-        return template('quien_llama', {'control':control, 'tipo':tipo, 'cedula':cedula, 'nombre':nombre, 'sexo':sexo, 'edad':edad})
+        return template('quien_llama', {'control':control, 'tipo':tipo, 'cedula':cedula,\
+                'nombre':nombre, 'sexo':sexo, 'edad':edad})
     else:
         return template('quien_llama')
 

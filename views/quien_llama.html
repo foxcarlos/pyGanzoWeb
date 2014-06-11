@@ -15,15 +15,15 @@
                     $('#messages').append("<li>Your browser doesn't support WebSockets.</li>");
                 }
             }
-				alert('Paso')            
-            ws = new WebSocket('ws://localhost:8080/websocket');
+				//alert('Paso')            
+            ws = new WebSocket('ws://10.121.3.31:8080/websocket');
             ws.onopen = function(evt) {
-            	 alert('metodo onopen')
+            	 //alert('metodo onopen')
                 $('#messages').append('<li>Connected to chat.</li>');
             }
             ws.onmessage = function(evt) {
             	 //alert('Hay un mensage:'+evt.data)
-                $('#messages').append('<li>' + evt.data + '</li>');
+                //$('#messages').append('<li>' + evt.data + '</li>');
                 $('#paciente').text(evt.data);
                 campana()
             }
@@ -34,10 +34,16 @@
                 $('#message').val('').focus();
                 return false;
             });*/
+            $('#buscarControl').submit(function() {
+            	 document.getElementById('botonLlamar').focus()
+               return false;
+            });
+            
             $('#quien_llama').submit(function() {
             	 alert('Se presiono Click')
             	 alert($('#paciente').val())
             	 ws.send($('#paciente').val());
+            	 document.getElementById('control').focus()
                return false;
             });
         });
@@ -47,11 +53,9 @@
    function validar(){
       var ncontrol = document.getElementById('control').value;
       //console.log(ncontrol.length);
-      //if (ncontrol.length==9){
-      //document.getElementById('submit').click();
-      alert('Se presiono submit');
-      //document.getElementById('botonLlamar').click();
-      //}		
+      if (ncontrol.length==9){
+      	document.getElementById('submit').focus();      	
+      }		
    }
 </script>
 
@@ -80,7 +84,7 @@
                  		<label class="col-sm-2 control-label" for="textinput">Control</label>
 <!-- onkeyup="validar()" -->                  	
                   	<div class="col-sm-4">
-                     	<input id="control" name="control" type="text" placeholder="Numero de Control a Consultar" class="form-control">
+                     	<input id="control" name="control" type="text" placeholder="Numero de Control a Consultar" onkeyup="validar()" class="form-control">
                   	</div>
                	</div>
              </div>

@@ -6,7 +6,7 @@
     <title>Llamado a Pacientes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="foxcarlos" >
+    <meta name="author" content="cgarcia" >
     <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -38,7 +38,7 @@
                 }
             }
 				alert('Paso')            
-            ws = new WebSocket('ws://localhost:8080/websocket');
+            ws = new WebSocket('ws://10.121.3.31:8080/websocket');
             ws.onopen = function(evt) {
             	 alert('metodo onopen')
                 $('#messages').append('<li>Connected to chat.</li>');
