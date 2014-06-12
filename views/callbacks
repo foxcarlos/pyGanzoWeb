@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+
+<script type="text/javascript">
+	function haceAlgo(callbackPaso1, callbackPaso2, callbackTermino){
+    //algo aca
+    callbackPaso1('paso 1');
+ 
+    //sigo... algo aca
+    callbackPaso2('paso 2');
+ 
+    //sigo ... y termino
+    callbackTermino('terminó');
+	}
+ 
+	function paso1(quePaso){
+     alert(quePaso);
+	}
+ 
+	function paso2(quePaso){
+     alert(quePaso);
+	}
+ 
+	function termino(queHizo){
+     alert(queHizo);
+	}
+	
+</script>
+
+</head>
+<body>
+<input type="button" name="boton" onclick="haceAlgo(paso1, paso2, termino)" />
+
+</body>
+</html>

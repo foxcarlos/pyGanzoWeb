@@ -27,6 +27,9 @@
                 $('#paciente').text(evt.data);
                 campana()
             }
+            
+            $('#paciente').val()
+            
             /*$('#quien_llama').submit(function() {
             	 alert('Se presiono Submit')
             	 
@@ -34,13 +37,13 @@
                 $('#message').val('').focus();
                 return false;
             });*/
+            
             $('#buscarControl').submit(function() {
-            	 document.getElementById('botonLlamar').focus()
-               return false;
+            	alert('Se hizo click en boton buscar control')
+            	document.getElementById('botonLlamar').focus()
             });
             
             $('#quien_llama').submit(function() {
-            	 alert('Se presiono Click')
             	 alert($('#paciente').val())
             	 ws.send($('#paciente').val());
             	 document.getElementById('control').focus()
@@ -52,16 +55,31 @@
 <script type="text/javascript">
    function validar(){
       var ncontrol = document.getElementById('control').value;
-      //console.log(ncontrol.length);
       if (ncontrol.length==9){
-      	document.getElementById('submit').focus();      	
+			alert('Buscando Control')      	 
+      	document.getElementById('submitBuscarControl').focus();
+      	document.getElementById('submitBuscarControl').click();
+      	document.getElementById('botonLlamar').click();	      	
       }		
    }
+   
+   function nuevaFuncion(){
+		alert('Entre');
+		document.getElementById('botonLlamar').focus();
+   }
+   
+	function esperarUnSegundo(callback) {
+  		setTimeout(function() {
+    		callback();
+  		}, 10000);
+	}
+	   
 </script>
 
 <title>Quien Llama</title>
 </head>
-<body onload="document.getElementById('control').focus()">
+<!-- onload="document.getElementById('control').focus()" -->
+<body>
    <div class="container-fluid">
       <div class="row-fluid">
          <img src="/static/file/img/Logosmall.bmp" width="30%" height="5%" alt="Hospital Coromoto" longdesc="Hospital Coromoto" />
@@ -93,7 +111,7 @@
               	<div class="form-group">
                  		<div class="col-sm-offset-1 col-sm-2">
                      	<div class="pull-right">
-                        	<button id="submit" type="submit" class="btn btn-primary">Buscar</button>
+                        	<button id="submitBuscarControl" type="submit" class="btn btn-primary">Buscar</button>
                             <button type="reset" class="btn btn-danger">Limpiar</button>
                         </div>
                     </div>
