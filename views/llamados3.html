@@ -44,7 +44,7 @@
                 $('#messages').append('<li>Connected to chat.</li>');
             }
             ws.onmessage = function(evt) {
-            	 //alert('Hay un mensage:'+evt.data)
+            	 alert('Hay un mensage:'+evt.data)
                 $('#messages').append('<li>' + evt.data + '</li>');
                 $('#paciente').text(evt.data);
                 campana()
